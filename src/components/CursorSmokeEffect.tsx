@@ -29,7 +29,7 @@ export const CursorSmokeEffect: React.FC = () => {
     let lastX = 0;
     let lastY = 0;
     let isMoving = false;
-    let moveTimeout: NodeJS.Timeout;
+    let moveTimeout: ReturnType<typeof setTimeout> | undefined;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;

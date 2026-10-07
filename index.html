@@ -16,6 +16,28 @@
   <body class="bg-[#0a0720] text-[#eeeeff] selection:bg-[#8b5cf6]/30 selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Fallback loader if deployed directly to static root without Vite dev server
+      window.addEventListener('error', function(e) {
+        if (e.target && e.target.src && e.target.src.includes('main.tsx')) {
+          console.warn('Static deployment detected. Loading bundle from dist...');
+          if (!document.getElementById('static-css-bundle')) {
+            var link = document.createElement('link');
+            link.id = 'static-css-bundle';
+            link.rel = 'stylesheet';
+            link.href = './dist/assets/index.css';
+            document.head.appendChild(link);
+          }
+          if (!document.getElementById('static-js-bundle')) {
+            var script = document.createElement('script');
+            script.id = 'static-js-bundle';
+            script.type = 'module';
+            script.src = './dist/assets/index.js';
+            document.body.appendChild(script);
+          }
+        }
+      }, true);
+    </script>
   </body>
 </html>
 

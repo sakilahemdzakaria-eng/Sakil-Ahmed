@@ -222,6 +222,16 @@ export const EditModal: React.FC<EditModalProps> = ({
                 <Download className="w-3.5 h-3.5" />
                 <span>Backup JSON</span>
               </button>
+
+              <a
+                href="./portfolio-complete.zip"
+                download="portfolio-complete.zip"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-950/70 text-emerald-300 border border-emerald-700 text-xs font-mono-code hover:bg-emerald-900 transition-colors font-bold shadow-sm"
+                title="Download all project files and dist bundle as a zip archive"
+              >
+                <Download className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Download GitHub ZIP</span>
+              </a>
             </div>
 
             <div className="flex gap-2">
