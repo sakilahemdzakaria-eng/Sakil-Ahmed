@@ -20,7 +20,7 @@ interface VideoSectionProps {
   isEditing: boolean;
 }
 
-const LOCAL_SHOWREEL_URL = "/sakil-showreel.mp4";
+const LOCAL_SHOWREEL_URL = "./sakil-showreel.mp4";
 
 export const VideoSection: React.FC<VideoSectionProps> = ({ isEditing }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
