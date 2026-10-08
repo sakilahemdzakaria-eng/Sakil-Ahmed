@@ -15,6 +15,7 @@ import { Footer } from './components/Footer';
 import { EditModal } from './components/EditModal';
 import { ParallaxBackground } from './components/ParallaxBackground';
 import { CursorSmokeEffect } from './components/CursorSmokeEffect';
+import { SplashLandingPage } from './components/SplashLandingPage';
 import {
   initialProfile,
   initialStats,
@@ -28,6 +29,8 @@ import { ProfileData, JobExperience, EducationData, Testimonial, ThemeMode } fro
 import { Edit3, CheckCircle2, SlidersHorizontal, Sparkles } from 'lucide-react';
 
 export default function App() {
+  const [hasEntered, setHasEntered] = useState<boolean>(false);
+
   const [theme, setTheme] = useState<ThemeMode>(() => {
     try {
       const saved = localStorage.getItem('sz_theme_mode') as ThemeMode;
@@ -202,6 +205,19 @@ export default function App() {
 
   return (
     <div data-theme={theme} className="theme-app-container relative min-h-screen bg-[#0a0720] text-[#eeeeff] selection:bg-[#8b5cf6]/30 selection:text-white transition-colors duration-300">
+      {/* Intro Landing Splash Page with Photo & Start Button */}
+      {!hasEntered && (
+        <SplashLandingPage
+          profile={profile}
+          onStart={() => {
+            setHasEntered(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          onPhotoUploaded={handlePhotoUploaded}
+          onPhotoRemoved={handlePhotoRemoved}
+        />
+      )}
+
       {/* Animated Glowing Edge Frame from original HTML */}
       <div className="edge-frame" aria-hidden="true"></div>
 
@@ -221,6 +237,10 @@ export default function App() {
           whatsappNumber={profile.whatsapp}
           theme={theme}
           onThemeChange={setTheme}
+          onOpenCover={() => {
+            setHasEntered(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         />
 
         {/* Hero Section */}
@@ -294,6 +314,18 @@ export default function App() {
 
       {/* Floating Edit Button & Settings Controls */}
       <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => {
+            setHasEntered(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="p-3.5 rounded-full bg-[#170f4a] text-[#8b5cf6] border border-[#302a7c] hover:bg-[#201569] shadow-xl hover:scale-105 transition-all"
+          title="Return to Welcome Landing Cover"
+        >
+          <Sparkles className="w-4 h-4" />
+        </button>
+
         <button
           type="button"
           onClick={() => setIsSettingsOpen(true)}

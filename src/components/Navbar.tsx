@@ -11,6 +11,7 @@ interface NavbarProps {
   whatsappNumber: string;
   theme: ThemeMode;
   onThemeChange: (theme: ThemeMode) => void;
+  onOpenCover?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -19,21 +20,27 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSettingsModal,
   whatsappNumber,
   theme,
-  onThemeChange
+  onThemeChange,
+  onOpenCover
 }) => {
   return (
     <nav className="sticky top-0 z-40 py-5 bg-[#0a0720]/80 backdrop-blur-md border-b border-[#302a7c]/40 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-4 flex-wrap">
-        <a href="#top" className="flex items-center gap-2.5 font-display font-extrabold text-xl tracking-tight text-[#eeeeff] hover:text-[#38bdf8] transition-colors group">
+        <button
+          type="button"
+          onClick={onOpenCover}
+          className="flex items-center gap-2.5 font-display font-extrabold text-xl tracking-tight text-[#eeeeff] hover:text-[#38bdf8] transition-colors group cursor-pointer text-left"
+          title="Return to Welcome Cover Screen"
+        >
           <span className="relative flex h-3.5 w-3.5 items-center justify-center">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#8b5cf6]"></span>
           </span>
           <span>Sakil A. Zakaria</span>
           <span className="text-xs px-2 py-0.5 rounded-full bg-[#170f4a] text-[#38bdf8] border border-[#302a7c] font-mono-code font-normal hidden sm:inline-block">
-            UK Restaurant Marketer
+            UK Restaurant Marketer ✦ Welcome Page
           </span>
-        </a>
+        </button>
 
         <div className="hidden lg:flex items-center gap-1 font-mono-code text-[13px] text-[#aaa8dc]">
           <a href="#about" className="px-3 py-1.5 rounded-full hover:text-white hover:bg-[#170f4a] transition-all">About</a>
