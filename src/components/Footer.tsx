@@ -28,6 +28,13 @@ export const Footer: React.FC = () => {
             <a href="#skills" className="hover:underline">Skills</a>
             <a href="#reviews" className="hover:underline">Reviews</a>
             <a href="#planner" className="hover:underline">ROI Planner</a>
+            <a
+              href="/sakil-ahmed-portfolio.zip"
+              download="sakil-ahmed-portfolio.zip"
+              className="text-emerald-700 font-bold hover:underline"
+            >
+              Download Project ZIP ↓
+            </a>
           </div>
         </div>
 

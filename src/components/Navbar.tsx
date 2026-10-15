@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -40,6 +40,17 @@ export const Navbar: React.FC = () => {
         </ul>
 
         <div className="flex items-center gap-2">
+          <a
+            href="/sakil-ahmed-portfolio.zip"
+            download="sakil-ahmed-portfolio.zip"
+            className="btn-pill !border-emerald-600 !text-emerald-700 hover:!bg-emerald-600 hover:!text-white flex items-center gap-1.5"
+            title="Download complete project ZIP file"
+          >
+            <Download size={13} />
+            <span className="hidden sm:inline">Download ZIP</span>
+            <span className="sm:hidden">ZIP</span>
+          </a>
+
           <a
             href="#contact"
             className="btn-pill text-[#0a0a0a] hover:bg-[#0a0a0a] hover:text-white"
