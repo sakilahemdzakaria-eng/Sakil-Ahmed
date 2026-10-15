@@ -32,3 +32,20 @@ Build for production:
 ```bash
 npm run build
 ```
+
+## Deploying to GitHub Pages
+
+If you see a **blank white page** on GitHub, it is because:
+1. GitHub Pages needs the built files (from `npm run build`), not raw `.tsx` files.
+2. Assets must be loaded using relative paths (`base: './'`).
+
+### Method 1: Automatic Deployment (Recommended)
+This repository includes `.github/workflows/deploy.yml`. When you push your code to GitHub:
+1. Go to your repository on GitHub.
+2. Click **Settings** > **Pages** (in the left sidebar).
+3. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+4. Push your code or click the **Actions** tab to run the workflow. Your site will automatically build and publish live!
+
+### Method 2: Manual Deploy from `dist`
+1. Run `npm run build`.
+2. Push the contents of the `dist` folder to your `gh-pages` branch.
