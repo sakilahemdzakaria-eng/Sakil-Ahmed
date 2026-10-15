@@ -1,0 +1,8 @@
+{
+  "name": "Sakil Ahmed Zakaria — Campaign Manager",
+  "description": "Portfolio and ROI Planner for Sakil Ahmed Zakaria, Campaign Manager & Senior Sales Executive for UK restaurants based in Sylhet, Bangladesh.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
